@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost/stock
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 5
+
+  thymeleaf:
+    cache: false
+    mode: LEGACYHTML5
+
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 500000MB
+      max-file-size: 800000MB
+      max-request-size: 700000MB
+
+mybatis:
+  type-aliases-package: com.example.demooauth2.dto
+  config-location: classpath:mybatis/mybatis_config.xml
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
