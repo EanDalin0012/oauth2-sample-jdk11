@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demooauth2.core.dao.DefaultAuthenticationProviderDao">
 
-    <resultMap type="JsonObj" id="user">
+    <resultMap type="UserDTO" id="user">
         <id property="id" column="id"/>
-        <result property="username" column="user_name"/>
+        <result property="userName" column="user_name"/>
         <result property="password" column="password"/>
         <result property="accountExpired" column="account_expired"/>
         <result property="accountLocked" column="account_locked"/>
@@ -13,7 +13,7 @@
         <association property="authorities" resultMap="authority" javaType="list"/>
     </resultMap>
 
-    <resultMap type="JsonObj" id="authority">
+    <resultMap type="AuthorityDTO" id="authority">
 <!--        <id property="id" column="authority_id"/>-->
         <result property="name" column="authority_name"/>
     </resultMap>

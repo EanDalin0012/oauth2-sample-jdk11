@@ -1,8 +1,10 @@
 package com.example.demooauth2.core.customauthenticationprovider;
 
 import com.example.demooauth2.core.dao.DefaultAuthenticationProviderDao;
+import com.example.demooauth2.dto.AuthorityDTO;
 import com.example.demooauth2.dto.JsonObj;
 import com.example.demooauth2.dto.JsonObjArray;
+import com.example.demooauth2.dto.UserDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,32 +69,32 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
 //            }
 //            input.setJsonObject("deviceInfo", deviceInfoObj);
 
-            JsonObj userInfo = userDAO.getUserByName(input);
+            UserDTO userInfo = userDAO.getUserByName(input);
             log.info("User Info object: "+objectMapper.writeValueAsString(userInfo));
 
             if (userInfo == null) {
                 log.info("============== Authorization User Not Found ===============");
                 throw new UnauthorizedClientException("userNotFound");
             }
-            if (userInfo.getBoolean("accountLocked")) {
+            if (userInfo.isAccountLocked()) {
                 log.info("============== User Account Locked ===============");
                 throw new UnauthorizedClientException("accountLocked");
             }
-            if (!userInfo.getBoolean("enabled")) {
+            if (!userInfo.isEnabled()) {
                 log.info("============== User Enabled False ===============");
                 throw new UnauthorizedClientException("userDisabled");
             }
-            if (userInfo.getBoolean("accountExpired")) {
+            if (userInfo.isAccountExpired()) {
                 log.info("============== User Account Expired ===============");
                 throw new UnauthorizedClientException("userExpired");
             }
-            if (userInfo.getBoolean("credentialsExpired")) {
+            if (userInfo.isCredentialsExpired()) {
                 log.info("============== User Account Credentials Expired ===============>>>>>>>>>>>>");
                 throw new UnauthorizedClientException("userExpired");
             }
 
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-            String _password = userInfo.getString("password");
+            String _password = userInfo.getPassword();
 
             boolean isPasswordMatch = passwordEncoder.matches(password, _password);
             System.out.println(isPasswordMatch);
@@ -101,9 +103,9 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
             }
 
             List<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
-            JsonObjArray authorities = userInfo.getJsonObjectArray("authorities");
-            for (JsonObj authority : authorities.toListData()) {
-                grantedAuthorities.add(new SimpleGrantedAuthority(authority.getString("name")));
+            List<AuthorityDTO> authorities = userInfo.getAuthorities();
+            for (AuthorityDTO authority : authorities) {
+                grantedAuthorities.add(new SimpleGrantedAuthority(authority.getName()));
             }
 
             JsonObj param = new JsonObj();
@@ -112,9 +114,9 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
             log.info("Apply keep login success");
 //            isLoginSuccess(param);
             JsonObj principal = new JsonObj();
-            principal.setString("username", userInfo.getString("username"));
+            principal.setString("username", userInfo.getUserName());
             JsonObj credentials = new JsonObj();
-            credentials.setString("password", userInfo.getString("password"));
+            credentials.setString("password", userInfo.getPassword());
 //            Object principal, Object credentials
             log.info("============== End Authorization ===============>>>>>>>>>>>>\n");
             return new UsernamePasswordAuthenticationToken(
