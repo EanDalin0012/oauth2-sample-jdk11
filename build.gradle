@@ -46,8 +46,8 @@ dependencies {
     implementation group: 'org.springframework', name: 'spring-aspects', version: '5.3.14'
     implementation group: 'org.springframework', name: 'spring-aop', version: '5.3.14'
 
-    implementation 'org.apache.logging.log4j:log4j-api:2.16.0'
-    implementation 'org.apache.logging.log4j:log4j-core:2.16.0'
+    implementation 'org.apache.logging.log4j:log4j-api:2.17.0'
+    implementation 'org.apache.logging.log4j:log4j-core:2.17.0'
     implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
     implementation group: 'org.slf4j', name: 'jcl-over-slf4j', version: '1.7.30'
     implementation group: 'log4j', name: 'log4j', version: '1.2.17'
@@ -64,6 +64,19 @@ dependencies {
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.22'
     annotationProcessor 'org.projectlombok:lombok'
     annotationProcessor "org.mapstruct:mapstruct-processor:1.4.2.Final"
+
+//    SQLite
+//    implementation group: 'org.hibernate.orm', name: 'hibernate-core', version: '6.0.0.Beta3'
+//    implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.36.0.3'
+
+//    AspectJ
+    implementation group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.7'
+    implementation group: 'aspectj', name: 'aspectjrt', version: '1.5.3'
+
+//  SPRING FRAMEWORK
+    implementation group: 'org.springframework', name: 'spring-oxm', version: '5.3.14'
+    implementation group: 'org.springframework', name: 'spring-orm', version: '5.3.14'
+
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'org.postgresql:postgresql'
