@@ -22,15 +22,16 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 @EnableResourceServer
 @Configuration
 public class ResourcesServerConfiguration  extends ResourceServerConfigurerAdapter {
+
     private static final String RESOURCE_ID = "resource-server-rest-api";
     private static final String SECURED_READ_SCOPE = "#oauth2.hasScope('read')";
     private static final String SECURED_WRITE_SCOPE = "#oauth2.hasScope('write')";
     private static final String SECURED_PATTERN = "/api/**";
 
-//    @Autowired
-//    private AccessDeniedHandler accessDeniedHandler;
-//    @Autowired
-//    private AuthenticationEntryPoint authenticationEntryPoint;
+    @Autowired
+    private AccessDeniedHandler accessDeniedHandler;
+    @Autowired
+    private AuthenticationEntryPoint authenticationEntryPoint;
 
     @Bean
     @ConfigurationProperties(prefix="spring.datasource")
@@ -40,31 +41,37 @@ public class ResourcesServerConfiguration  extends ResourceServerConfigurerAdapt
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
         resources
                 .stateless(true)
-//                .accessDeniedHandler(this.accessDeniedHandler)
-//                .authenticationEntryPoint(this.authenticationEntryPoint)
+                .accessDeniedHandler(this.accessDeniedHandler)
+                .authenticationEntryPoint(this.authenticationEntryPoint)
                 .resourceId(RESOURCE_ID);
     }
 
     @Override
-    public void configure(HttpSecurity http) throws Exception{
-
-
-        http.authorizeRequests()
-            .antMatchers(HttpMethod.GET		,    "/**").access("#oauth2.hasScope('read')")
-            .antMatchers(HttpMethod.POST	,  	 "/**").access("#oauth2.hasScope('write')")
-            .antMatchers(HttpMethod.PATCH	,  	 "/**").access("#oauth2.hasScope('write')")
-            .antMatchers(HttpMethod.PUT		,    "/**").access("#oauth2.hasScope('write')")
-            .antMatchers(HttpMethod.DELETE	,	 "/**").access("#oauth2.hasScope('write')");
-
-
-            /*
-            .headers().addHeaderWriter((request, response) -> {
-	            response.addHeader("Access-Control-Allow-Origin", "*");
-	            if (request.getMethod().equals("OPTIONS")) {
-	                response.setHeader("Access-Control-Allow-Methods", request.getHeader("Access-Control-Request-Method"));
-	                response.setHeader("Access-Control-Allow-Headers", request.getHeader("Access-Control-Request-Headers"));
-	        	}
-    		});
-            */
+    public void configure(HttpSecurity http) throws Exception {
+        http
+                .csrf().disable()
+                .authorizeRequests()
+                .antMatchers(new String[] {"/"}).permitAll()
+                .antMatchers(new String[]{
+                        "/mastercard*/**",
+                        "/tutuka*/**",
+                        "/wechat*/**",
+                        "/alipays*/**",
+                        "/templates*/**",
+                        "/tranglo*/notify**",
+                        "/giift*/**",
+                        "/moneygram*/country*/states**",
+                        "/westernunion*/**",
+                        "/liquid*/**",
+                        "/transactions*/**",
+                        "/kbank*/**",
+                        "/siambank*/**",
+                        "/ecomv*/**"
+                }).permitAll()
+                .anyRequest()
+                .authenticated().and()
+                .exceptionHandling()
+                .accessDeniedHandler(this.accessDeniedHandler)
+                .authenticationEntryPoint(this.authenticationEntryPoint);
     }
 }
