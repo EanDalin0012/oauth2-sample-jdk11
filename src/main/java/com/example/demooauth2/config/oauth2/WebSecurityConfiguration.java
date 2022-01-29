@@ -23,6 +23,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 @Order(SecurityProperties.BASIC_AUTH_ORDER)
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
+	private static final String TOKEN_END_POINT = "/oauth/token";
 
 	@Bean
 	public PasswordEncoder passwordEncoder() {
