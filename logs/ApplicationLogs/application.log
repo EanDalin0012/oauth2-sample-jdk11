@@ -22,3 +22,33 @@
  INFO 2022-01-29 12:06:27 (DefaultAuthenticationProvider.java:112) - Apply keep login success
  INFO 2022-01-29 12:06:27 (DefaultAuthenticationProvider.java:119) - ============== End Authorization ===============>>>>>>>>>>>>
 
+ INFO 2022-01-29 12:17:52 (DefaultAuthenticationProvider.java:41) - ============== Start Authorization ===============
+ INFO 2022-01-29 12:17:52 (DefaultAuthenticationProvider.java:45) - ============== Authentication Data :{"authorities":[],"details":{"grant_type":"password","client_id":"spring-security-oauth2-read-write-client","username":"admin"},"authenticated":false,"principal":"admin","credentials":"admin1234","name":"admin"}
+ INFO 2022-01-29 12:17:52 (DefaultAuthenticationProvider.java:71) - User Info object: {"id":1,"username":"admin","password":"$2a$08$qvrzQZ7jJ7oy2p/msL4M0.l83Cd0jNsX6AJUitbgRXGzge4j035ha","accountExpired":false,"accountLocked":false,"credentialsExpired":false,"enabled":true,"authorities":[{"name":"COMPANY_CREATE"},{"name":"COMPANY_READ"},{"name":"COMPANY_UPDATE"},{"name":"COMPANY_DELETE"},{"name":"DEPARTMENT_CREATE"},{"name":"DEPARTMENT_READ"},{"name":"DEPARTMENT_UPDATE"},{"name":"DEPARTMENT_DELETE"},{"name":"ROLE_COMPANY_READER"}]}
+ INFO 2022-01-29 12:17:52 (DefaultAuthenticationProvider.java:112) - Apply keep login success
+ INFO 2022-01-29 12:17:52 (DefaultAuthenticationProvider.java:119) - ============== End Authorization ===============>>>>>>>>>>>>
+
+ INFO 2022-01-29 13:01:22 (DefaultAuthenticationProvider.java:41) - ============== Start Authorization ===============
+ INFO 2022-01-29 13:01:22 (DefaultAuthenticationProvider.java:45) - ============== Authentication Data :{"authorities":[],"details":{"grant_type":"password","client_id":"spring-security-oauth2-read-write-client","username":"admin"},"authenticated":false,"principal":"admin","credentials":"admin1234","name":"admin"}
+ INFO 2022-01-29 13:01:23 (DefaultAuthenticationProvider.java:71) - User Info object: {"id":1,"username":"admin","password":"$2a$08$qvrzQZ7jJ7oy2p/msL4M0.l83Cd0jNsX6AJUitbgRXGzge4j035ha","accountExpired":false,"accountLocked":false,"credentialsExpired":false,"enabled":true,"authorities":[{"name":"COMPANY_CREATE"},{"name":"COMPANY_READ"},{"name":"COMPANY_UPDATE"},{"name":"COMPANY_DELETE"},{"name":"DEPARTMENT_CREATE"},{"name":"DEPARTMENT_READ"},{"name":"DEPARTMENT_UPDATE"},{"name":"DEPARTMENT_DELETE"},{"name":"ROLE_COMPANY_READER"}]}
+ INFO 2022-01-29 13:01:23 (DefaultAuthenticationProvider.java:112) - Apply keep login success
+ INFO 2022-01-29 13:01:23 (DefaultAuthenticationProvider.java:119) - ============== End Authorization ===============>>>>>>>>>>>>
+
+ INFO 2022-01-29 13:01:25 (DefaultAuthenticationProvider.java:41) - ============== Start Authorization ===============
+ INFO 2022-01-29 13:01:25 (DefaultAuthenticationProvider.java:45) - ============== Authentication Data :{"authorities":[],"details":{"grant_type":"password","client_id":"spring-security-oauth2-read-write-client","username":"admin"},"authenticated":false,"principal":"admin","credentials":"admin1234","name":"admin"}
+ INFO 2022-01-29 13:01:25 (DefaultAuthenticationProvider.java:71) - User Info object: {"id":1,"username":"admin","password":"$2a$08$qvrzQZ7jJ7oy2p/msL4M0.l83Cd0jNsX6AJUitbgRXGzge4j035ha","accountExpired":false,"accountLocked":false,"credentialsExpired":false,"enabled":true,"authorities":[{"name":"COMPANY_CREATE"},{"name":"COMPANY_READ"},{"name":"COMPANY_UPDATE"},{"name":"COMPANY_DELETE"},{"name":"DEPARTMENT_CREATE"},{"name":"DEPARTMENT_READ"},{"name":"DEPARTMENT_UPDATE"},{"name":"DEPARTMENT_DELETE"},{"name":"ROLE_COMPANY_READER"}]}
+ INFO 2022-01-29 13:01:25 (DefaultAuthenticationProvider.java:112) - Apply keep login success
+ INFO 2022-01-29 13:01:25 (DefaultAuthenticationProvider.java:119) - ============== End Authorization ===============>>>>>>>>>>>>
+
+ INFO 2022-01-29 13:01:31 (DefaultAuthenticationProvider.java:41) - ============== Start Authorization ===============
+ INFO 2022-01-29 13:01:31 (DefaultAuthenticationProvider.java:45) - ============== Authentication Data :{"authorities":[],"details":{"grant_type":"password","client_id":"spring-security-oauth2-read-write-client","username":"admin"},"authenticated":false,"principal":"admin","credentials":"admin1234","name":"admin"}
+ INFO 2022-01-29 13:01:31 (DefaultAuthenticationProvider.java:71) - User Info object: {"id":1,"username":"admin","password":"$2a$08$qvrzQZ7jJ7oy2p/msL4M0.l83Cd0jNsX6AJUitbgRXGzge4j035ha","accountExpired":false,"accountLocked":false,"credentialsExpired":false,"enabled":true,"authorities":[{"name":"COMPANY_CREATE"},{"name":"COMPANY_READ"},{"name":"COMPANY_UPDATE"},{"name":"COMPANY_DELETE"},{"name":"DEPARTMENT_CREATE"},{"name":"DEPARTMENT_READ"},{"name":"DEPARTMENT_UPDATE"},{"name":"DEPARTMENT_DELETE"},{"name":"ROLE_COMPANY_READER"}]}
+ INFO 2022-01-29 13:01:31 (DefaultAuthenticationProvider.java:112) - Apply keep login success
+ INFO 2022-01-29 13:01:31 (DefaultAuthenticationProvider.java:119) - ============== End Authorization ===============>>>>>>>>>>>>
+
+ INFO 2022-01-29 13:02:15 (DefaultAuthenticationProvider.java:41) - ============== Start Authorization ===============
+ INFO 2022-01-29 13:02:15 (DefaultAuthenticationProvider.java:45) - ============== Authentication Data :{"authorities":[],"details":{"grant_type":"password","client_id":"spring-security-oauth2-read-write-client","username":"admin"},"authenticated":false,"principal":"admin","credentials":"admin1234","name":"admin"}
+ INFO 2022-01-29 13:02:15 (DefaultAuthenticationProvider.java:71) - User Info object: {"id":1,"username":"admin","password":"$2a$08$qvrzQZ7jJ7oy2p/msL4M0.l83Cd0jNsX6AJUitbgRXGzge4j035ha","accountExpired":false,"accountLocked":false,"credentialsExpired":false,"enabled":true,"authorities":[{"name":"COMPANY_CREATE"},{"name":"COMPANY_READ"},{"name":"COMPANY_UPDATE"},{"name":"COMPANY_DELETE"},{"name":"DEPARTMENT_CREATE"},{"name":"DEPARTMENT_READ"},{"name":"DEPARTMENT_UPDATE"},{"name":"DEPARTMENT_DELETE"},{"name":"ROLE_COMPANY_READER"}]}
+ INFO 2022-01-29 13:02:15 (DefaultAuthenticationProvider.java:112) - Apply keep login success
+ INFO 2022-01-29 13:02:15 (DefaultAuthenticationProvider.java:119) - ============== End Authorization ===============>>>>>>>>>>>>
+
