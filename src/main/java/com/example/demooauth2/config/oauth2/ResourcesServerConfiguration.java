@@ -66,7 +66,8 @@ public class ResourcesServerConfiguration  extends ResourceServerConfigurerAdapt
                         "/transactions*/**",
                         "/kbank*/**",
                         "/siambank*/**",
-                        "/ecomv*/**"
+                        "/ecomv*/**",
+                        "/controller*/**"
                 }).permitAll()
                 .anyRequest()
                 .authenticated().and()
